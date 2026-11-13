@@ -118,6 +118,13 @@
     h2 { margin-top: 8px; color: var(--navy); font-size: clamp(27px, 3vw, 36px); line-height: 1.2; letter-spacing: -.025em; }
     .section-intro { max-width: 540px; margin-top: 10px; color: var(--muted); font-size: 14px; }
     .project-count { flex: 0 0 auto; color: #7b8da2; font-size: 11px; font-weight: 750; letter-spacing: .1em; }
+    .app-tools { display: grid; grid-template-columns: minmax(220px, 1fr) 220px auto; gap: 12px; align-items: center; margin: 0 0 20px; padding: 14px; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .app-search, .app-filter { width: 100%; min-height: 44px; padding: 0 13px; border: 1px solid #dce5ef; border-radius: 9px; background: #fbfdff; color: var(--ink); font: inherit; font-size: 12px; }
+    .app-search:focus, .app-filter:focus { outline: 3px solid rgba(45,139,232,.2); border-color: var(--blue); }
+    .result-count { color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .empty-state { display: none; padding: 28px; border: 1px dashed #cbd8e6; border-radius: 14px; color: var(--muted); text-align: center; font-size: 13px; }
+    .app-card[hidden] { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .app-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .app-card {
       position: relative; overflow: hidden; min-height: 260px; padding: 25px;
@@ -180,6 +187,8 @@
       .section { padding: 62px 0; }
       .section-heading { display: block; }
       .project-count { display: inline-block; margin-top: 16px; }
+      .app-tools { grid-template-columns: 1fr; }
+      .result-count { white-space: normal; }
       .app-grid { grid-template-columns: 1fr; gap: 14px; }
       .app-card { min-height: 0; padding: 22px; }
       .about-grid { grid-template-columns: 1fr; }
@@ -264,8 +273,22 @@
           <div class="project-count">08 PROJECTS IN THE PORTFOLIO</div>
         </div>
 
-        <div class="app-grid">
-          <article class="app-card">
+        <div class="app-tools" role="search" aria-label="Find an application">
+          <label class="sr-only" for="app-search">Search applications</label>
+          <input class="app-search" id="app-search" type="search" placeholder="Search applications or topics…" autocomplete="off">
+          <label class="sr-only" for="app-filter">Filter by category</label>
+          <select class="app-filter" id="app-filter">
+            <option value="all">All categories</option>
+            <option value="motors">Motors</option>
+            <option value="automation">Automation</option>
+            <option value="protection">Protection &amp; control</option>
+            <option value="equipment">Electrical equipment</option>
+            <option value="learning">Technical learning</option>
+          </select>
+          <span class="result-count" id="result-count" aria-live="polite">Showing 8 applications</span>
+        </div>
+        <div class="app-grid" id="app-grid">
+          <article class="app-card" data-category="motors" data-search="motorcalc 3p three phase motor calculations electrical sizing">
             <div class="app-top"><div class="app-icon">3P</div><span class="status pending">Pending Review</span></div>
             <h3>MotorCalc 3P</h3>
             <p>Practical three-phase motor calculations to support electrical sizing and everyday engineering work.</p>
@@ -273,55 +296,56 @@
             <div class="status-note">Submitted to Aptoide · Awaiting review</div>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="motors" data-search="motor plate scanner nameplate ocr motor specifications">
             <div class="app-top"><div class="app-icon">M</div><span class="status progress">In Development</span></div>
             <h3>Motor Plate Scanner</h3>
             <p>Capture and interpret industrial motor nameplates, organize specifications and support technical review.</p>
             <span class="app-category">Motor data &amp; OCR</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="motors" data-search="motor diagnostic pro fault finding troubleshooting asynchronous induction motor">
             <div class="app-top"><div class="app-icon">D</div><span class="status planned">Planned</span></div>
             <h3>Motor Diagnostic Pro</h3>
             <p>Interactive fault-finding paths for three-phase asynchronous motors, from symptoms to practical checks.</p>
             <span class="app-category">Motor troubleshooting</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="automation" data-search="plc diagnostic pro programmable logic controller siemens alarms status indicators">
             <div class="app-top"><div class="app-icon">PLC</div><span class="status planned">Planned</span></div>
             <h3>PLC Diagnostic Pro</h3>
             <p>A practical PLC reference covering hardware, status indicators, alarms and structured troubleshooting.</p>
             <span class="app-category">Industrial automation</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="protection" data-search="elecguard electrical protection control devices testing safety">
             <div class="app-top"><div class="app-icon">EG</div><span class="status planned">Planned</span></div>
             <h3>ElecGuard</h3>
             <p>Technical guidance for electrical protection and control devices, including testing methods and safety.</p>
             <span class="app-category">Protection &amp; control</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="equipment" data-search="industrial cabinet explorer electrical cabinet components connections">
             <div class="app-top"><div class="app-icon">IC</div><span class="status planned">Planned</span></div>
             <h3>Industrial Cabinet Explorer</h3>
             <p>Explore electrical cabinet components, their functions, connections and roles in industrial systems.</p>
             <span class="app-category">Electrical equipment</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="motors" data-search="motor starting pro motor starter methods power control circuits">
             <div class="app-top"><div class="app-icon">MS</div><span class="status planned">Planned</span></div>
             <h3>Motor Starting Pro</h3>
             <p>Learn motor starting methods, power and control circuits, operating principles and applications.</p>
             <span class="app-category">Motor control</span>
           </article>
 
-          <article class="app-card">
+          <article class="app-card" data-category="learning" data-search="electriquest digital cards learning industrial electricity technical">
             <div class="app-top"><div class="app-icon">EQ</div><span class="status planned">Planned</span></div>
             <h3>ElectriQuest</h3>
             <p>A digital card-based learning experience for discovering industrial electricity through practical topics.</p>
             <span class="app-category">Technical learning</span>
           </article>
         </div>
+        <p class="empty-state" id="empty-state">No applications match your search. Try another keyword or category.</p>
       </div>
     </section>
 
@@ -367,6 +391,30 @@
   </footer>
 
   <script>
+    const searchInput = document.querySelector('#app-search');
+    const categoryFilter = document.querySelector('#app-filter');
+    const appCards = [...document.querySelectorAll('.app-card')];
+    const resultCount = document.querySelector('#result-count');
+    const emptyState = document.querySelector('#empty-state');
+
+    function filterApplications() {
+      const query = searchInput.value.trim().toLowerCase();
+      const category = categoryFilter.value;
+      let visible = 0;
+      appCards.forEach((card) => {
+        const searchableText = (card.dataset.search + ' ' + card.innerText).toLowerCase();
+        const matchesQuery = searchableText.includes(query);
+        const matchesCategory = category === 'all' || card.dataset.category === category;
+        const show = matchesQuery && matchesCategory;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      resultCount.textContent = `Showing ${visible} of ${appCards.length} applications`;
+      emptyState.style.display = visible === 0 ? 'block' : 'none';
+    }
+    searchInput.addEventListener('input', filterApplications);
+    categoryFilter.addEventListener('change', filterApplications);
+
     const menuButton = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('.nav-links');
     menuButton.addEventListener('click', () => {
