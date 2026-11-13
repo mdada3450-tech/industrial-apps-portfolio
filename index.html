@@ -139,6 +139,9 @@
     .status { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border-radius: 999px; font-size: 9px; line-height: 1.2; font-weight: 850; letter-spacing: .035em; white-space: nowrap; }
     .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
     .status.pending { color: #98620a; background: #fff5dc; }
+    .status.available { color: #137347; background: #e6f6ed; }
+    .app-download { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 9px 13px; border-radius: 9px; background: var(--navy); color: white; text-decoration: none; font-size: 11px; font-weight: 800; transition: background .2s ease, transform .2s ease; }
+    .app-download:hover { background: var(--blue); transform: translateY(-1px); }
     .status.progress { color: #1769a9; background: #e8f4ff; }
     .status.planned { color: #66758a; background: #f0f3f7; }
     .app-card h3 { margin-top: 22px; color: var(--navy); font-size: 17px; letter-spacing: -.015em; }
@@ -288,12 +291,12 @@
           <span class="result-count" id="result-count" aria-live="polite">Showing 8 applications</span>
         </div>
         <div class="app-grid" id="app-grid">
-          <article class="app-card" data-category="motors" data-search="motorcalc 3p three phase motor calculations electrical sizing">
-            <div class="app-top"><div class="app-icon">3P</div><span class="status pending">Pending Review</span></div>
-            <h3>MotorCalc 3P</h3>
-            <p>Practical three-phase motor calculations to support electrical sizing and everyday engineering work.</p>
-            <span class="app-category">Motor calculations</span>
-            <div class="status-note">Submitted to Aptoide · Awaiting review</div>
+          <article class="app-card" data-category="motors" data-search="motorcalc 3p motor calc three phase motor calculations electrical sizing speed slip power mechanical performance star delta">
+            <div class="app-top"><div class="app-icon">3P</div><span class="status available">Available</span></div>
+            <h3>Motor Calc 3P</h3>
+            <p>Practical three-phase motor calculations: speed and slip, electrical power, mechanical performance, and star/delta connections.</p>
+            <span class="app-category">Motor calculations · English &amp; French</span>
+            <a class="app-download" href="https://github.com/mdada3450-tech/motor-calc-3p-releases/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Download APK <span aria-hidden="true">↓</span></a>
           </article>
 
           <article class="app-card" data-category="motors" data-search="motor plate scanner nameplate ocr motor specifications">
