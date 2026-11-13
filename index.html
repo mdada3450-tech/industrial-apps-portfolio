@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical mobile tools for industrial electricians, technicians and engineers.">
+  <title>Industrial Apps | Engineering Tools</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f8fc;
+      color: #172b45;
+      line-height: 1.6;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e4ebf3;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { color: #0755a5; font-size: 21px; font-weight: 800; }
+    nav a {
+      color: #42546b;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 90px 8%;
+      background: linear-gradient(120deg, #06346b, #0875c9);
+      color: white;
+    }
+    .hero small { color: #b9dcff; font-weight: bold; letter-spacing: 2px; }
+    .hero h1 {
+      max-width: 750px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.15;
+      margin: 20px 0;
+    }
+    .hero p { max-width: 620px; color: #e0efff; font-size: 17px; }
+    .section { padding: 65px 8%; }
+    .section h2 { font-size: 30px; margin-bottom: 10px; }
+    .subtitle { color: #64748b; margin-bottom: 30px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .app-card {
+      background: white;
+      border: 1px solid #e4ebf3;
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 5px 20px rgba(20, 50, 90, .04);
+    }
+    .app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: #e8f2ff;
+      color: #0755a5;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+    .app-card h3 { margin-bottom: 8px; }
+    .app-card p { color: #64748b; font-size: 14px; min-height: 66px; }
+    .status {
+      display: inline-block;
+      margin: 18px 0;
+      padding: 5px 11px;
+      border-radius: 20px;
+      background: #e7f7ee;
+      color: #167344;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .coming {
+      background: #f0f3f7;
+      color: #64748b;
+    }
+    .app-link {
+      display: inline-block;
+      color: #0755a5;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .about {
+      background: white;
+      border-top: 1px solid #e4ebf3;
+      border-bottom: 1px solid #e4ebf3;
+    }
+    footer {
+      padding: 25px 8%;
+      text-align: center;
+      color: #718096;
+      font-size: 13px;
+    }
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      nav a { margin-left: 10px; font-size: 12px; }
+      .hero, .section { padding: 55px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">INDUSTRIAL APPS</div>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <small>ENGINEERING • TECHNOLOGY • INDUSTRY</small>
+  <h1>Practical Digital Tools for Industrial Professionals</h1>
+  <p>
+    Discover mobile applications designed to support electrical technicians,
+    engineers and industrial maintenance professionals in their daily work.
+  </p>
+</section>
+
+<section class="section" id="apps">
+  <h2>Our Applications</h2>
+  <p class="subtitle">Practical tools for electrical engineering and industrial applications.</p>
+
+  <div class="grid">
+    <article class="app-card">
+      <div class="app-icon">3P</div>
+      <h3>MotorCalc 3P</h3>
+      <p>
+        Practical three-phase electrical motor calculations
+        for technicians, electricians and engineering students.
+      </p>
+      <span class="status">Available</span><br>
+      <a class="app-link" href="https://www.google.com/search?q=MotorCalc+3P" target="_blank" rel="noopener">
+        Discover the App →
+      </a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon">M</div>
+      <h3>Motor Plate Scanner</h3>
+      <p>Read and analyze industrial electric motor nameplate information.</p>
+      <span class="status coming">In Development</span>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon">D</div>
+      <h3>Motor Diagnostic Pro</h3>
+      <p>Guided troubleshooting for three-phase asynchronous motors.</p>
+      <span class="status coming">Planned</span>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon">PLC</div>
+      <h3>PLC Diagnostic Pro</h3>
+      <p>PLC indicators, fault analysis and industrial troubleshooting guidance.</p>
+      <span class="status coming">Planned</span>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon">E</div>
+      <h3>ElecGuard</h3>
+      <p>Technical reference for electrical protection and control devices.</p>
+      <span class="status coming">Planned</span>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon">+</div>
+      <h3>More Engineering Tools</h3>
+      <p>More practical applications and learning tools are coming soon.</p>
+      <span class="status coming">Coming Soon</span>
+    </article>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <h2>About This Project</h2>
+  <p class="subtitle">
+    Our goal is to make practical engineering knowledge and useful
+    industrial tools accessible through simple, focused mobile applications.
+  </p>
+</section>
+
+<footer>
+  © 2026 Industrial Apps. All rights reserved.
+</footer>
+
+</body>
+</html>
