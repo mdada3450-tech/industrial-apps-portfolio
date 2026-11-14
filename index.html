@@ -112,12 +112,61 @@ footer{padding:22px 0;border-top:1px solid #20394a;color:#718a99;font-size:10px}
 @media(max-width:950px){.hero-grid{grid-template-columns:.95fr 1.05fr}.hero-copy{padding:40px 28px}.app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid{gap:25px}}
 @media(max-width:650px){.container{width:calc(100% - 32px)}.nav{height:68px}.brand img{width:42px;height:42px}.brand strong{font-size:14px}.brand small{font-size:8px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:20px 22px;background:#091a28;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.nav-links .nav-cta{text-align:center}.hero{padding:20px 0 28px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding:34px 24px 28px}h1{font-size:48px;margin:18px 0 14px}.hero-copy>p{font-size:14px}.hero-specs{margin-top:26px}.hero-image{min-height:245px}.hero-image img{min-height:245px}.metrics-grid{grid-template-columns:1fr;gap:13px;padding:18px 0}.metric{justify-content:flex-start}.metric+.metric{border:0}.section{padding:55px 0}.section-head{display:block}.project-count{display:inline-block;margin-top:18px}.app-tools{flex-direction:column}.app-filter{min-width:0}.result-count{white-space:normal}.app-grid{grid-template-columns:1fr}.app-card{min-height:0}.app-card p{min-height:0}.about-grid{grid-template-columns:1fr}.about-visual,.about-visual img{min-height:260px;height:260px}.focus-list{grid-template-columns:1fr 1fr}.contact-inner{align-items:flex-start;flex-direction:column;padding:24px}.footer-inner{flex-direction:column;gap:7px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Theme switch */
+.theme-toggle{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #31566c;border-radius:7px;background:#10283a;color:#dff5ff;font:750 10px ui-monospace,monospace;letter-spacing:.08em;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.theme-toggle:hover{border-color:var(--cyan)}
+.theme-toggle .theme-icon{font-size:15px;line-height:1}
+body[data-theme="light"]{--bg:#f2f6fa;--panel:#fff;--panel2:#e8f0f6;--line:#cbd9e3;--text:#142b3b;--muted:#607789;background:var(--bg);color:var(--text)}
+body[data-theme="light"]:before{background-image:linear-gradient(rgba(37,94,125,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(37,94,125,.055) 1px,transparent 1px)}
+body[data-theme="light"] .site-header{background:rgba(247,250,253,.92);border-bottom-color:#d5e0e8}
+body[data-theme="light"] .nav-links a{color:#385469}
+body[data-theme="light"] .nav-links a:hover{color:#087dbb}
+body[data-theme="light"] .nav-links .nav-cta{color:#087dbb;border-color:#9fc6dc}
+body[data-theme="light"] .theme-toggle{background:#fff;color:#23445a;border-color:#b9cbd7}
+body[data-theme="light"] .menu-toggle{color:#23445a;border-color:#c5d4df}
+body[data-theme="light"] .hero-grid{background:linear-gradient(135deg,#fff,#eaf2f8 72%);border-color:#c7d8e3;box-shadow:0 22px 65px rgba(27,64,88,.12)}
+body[data-theme="light"] .hero-copy>p{color:#526d80}
+body[data-theme="light"] .hero-specs{border-color:#d5e1e9}
+body[data-theme="light"] .spec span{color:#627b8d}
+body[data-theme="light"] .btn-secondary{color:#24475d;border-color:#a8bfce}
+body[data-theme="light"] .metrics{background:#e7eff5;border-color:#cfdae3}
+body[data-theme="light"] .metric{color:#526d80}
+body[data-theme="light"] .metric+.metric{border-color:#cbd8e1}
+body[data-theme="light"] .section-head p{color:#607789}
+body[data-theme="light"] .project-count{border-color:#b7cfdd;color:#087dbb}
+body[data-theme="light"] .app-search,body[data-theme="light"] .app-filter{background:#fff;border-color:#c6d5df;color:#19384d}
+body[data-theme="light"] .app-search::placeholder{color:#8296a4}
+body[data-theme="light"] .result-count{color:#61798a}
+body[data-theme="light"] .app-card{background:linear-gradient(155deg,#fff,#edf3f7);border-color:#cbd9e3;box-shadow:0 5px 18px rgba(29,65,88,.045)}
+body[data-theme="light"] .app-card:hover{border-color:#69a9ca;box-shadow:0 14px 30px rgba(29,65,88,.12)}
+body[data-theme="light"] .app-card p{color:#5d7485}
+body[data-theme="light"] .app-icon{background:#e5f0f6;border-color:#c4d8e4;color:#087dbb}
+body[data-theme="light"] .status.planned{color:#657887;background:#edf1f4;border-color:#d6dfe5}
+body[data-theme="light"] .empty-state{color:#607789;border-color:#b8cbd8}
+body[data-theme="light"] .about{background:#e8f0f5;border-color:#d1dde5}
+body[data-theme="light"] .about-visual{background:#dce8ef;border-color:#b8ccd9;box-shadow:0 15px 35px rgba(29,65,88,.12)}
+body[data-theme="light"] .about-copy p{color:#536d7f}
+body[data-theme="light"] .publisher{background:#f8fbfd;border-color:#cbd9e3}
+body[data-theme="light"] .publisher-mark{background:#e1eff6;color:#087dbb}
+body[data-theme="light"] .publisher strong{color:#18384d}
+body[data-theme="light"] .publisher small{color:#607789}
+body[data-theme="light"] .focus-item{color:#36566b}
+body[data-theme="light"] .focus-item span{border-color:#9fc6dc;color:#087dbb}
+body[data-theme="light"] .contact-inner{background:linear-gradient(100deg,#fff,#e8f1f7);border-color:#c6d7e2}
+body[data-theme="light"] .contact-inner p{color:#607789}
+body[data-theme="light"] footer{border-color:#d0dce5;color:#718797}
+body[data-theme="light"] .footer-brand{color:#35566b}
+@media(max-width:950px){.theme-toggle{margin-left:auto}}
+@media(max-width:650px){.nav-links .theme-toggle{justify-content:center;width:100%}body[data-theme="light"] .nav-links{background:#f7fafc;border-bottom-color:#d5e0e8}}
+
 </style>
 </head>
 <body>
 <header class="site-header">
  <div class="container nav">
   <a class="brand" href="#home" aria-label="Industrial Apps home"><svg class="brand-symbol" viewBox="0 0 64 64" role="img" aria-label="Industrial Apps logo"><path d="M25 3h14l3 8a23 23 0 0 1 6 3l8-3 7 12-6 7a23 23 0 0 1 0 7l6 7-7 12-8-3a23 23 0 0 1-6 3l-3 8H25l-3-8a23 23 0 0 1-6-3l-8 3-7-12 6-7a23 23 0 0 1 0-7l-6-7 7-12 8 3a23 23 0 0 1 6-3z" fill="#147fc1" stroke="#7bd8f0" stroke-width="2"/><circle cx="32" cy="32" r="16" fill="#0a2031" stroke="#b6e8f5" stroke-width="2"/><path d="m37 13-17 27h12l-4 15 20-31H35z" fill="#ffb547" stroke="#fff0cc" stroke-width="1.5" stroke-linejoin="round"/></svg><span><strong>Industrial Apps</strong><small>Engineering tools / 2026</small></span></a>
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode"><span class="theme-icon" aria-hidden="true">☀</span><span class="theme-label">LIGHT MODE</span></button>
   <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
   <nav class="nav-links" id="main-nav" aria-label="Main navigation">
    <a href="#home">Home</a><a href="#apps">Applications</a><a href="#about">About</a><a class="nav-cta" href="#contact">Get in touch ↗</a>
@@ -160,6 +209,15 @@ footer{padding:22px 0;border-top:1px solid #20394a;color:#718a99;font-size:10px}
 </main>
 <footer><div class="container footer-inner"><span class="footer-brand">INDUSTRIAL APPS / ENGINEERING TOOLS</span><span>© 2026 Industrial Apps. All rights reserved.</span></div></footer>
 <script>
+
+const themeButton=document.querySelector('#theme-toggle');
+const themeIcon=themeButton.querySelector('.theme-icon');
+const themeLabel=themeButton.querySelector('.theme-label');
+function applyTheme(theme){document.body.dataset.theme=theme;const light=theme==='light';themeIcon.textContent=light?'☾':'☀';themeLabel.textContent=light?'DARK MODE':'LIGHT MODE';themeButton.setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode');document.querySelector('meta[name="theme-color"]').content=light?'#f2f6fa':'#081522';}
+let savedTheme='dark';try{savedTheme=localStorage.getItem('industrial-apps-theme')||'dark'}catch(error){}
+applyTheme(savedTheme);
+themeButton.addEventListener('click',()=>{const next=document.body.dataset.theme==='dark'?'light':'dark';applyTheme(next);try{localStorage.setItem('industrial-apps-theme',next)}catch(error){}});
+
 const searchInput=document.querySelector('#app-search');
 const categoryFilter=document.querySelector('#app-filter');
 const appCards=[...document.querySelectorAll('.app-card')];
