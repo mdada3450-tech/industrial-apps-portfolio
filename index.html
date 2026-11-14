@@ -1,429 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b2342">
-  <meta name="description" content="Independent developer building practical mobile tools for electrical engineering, industrial maintenance and automation professionals.">
-  <meta property="og:title" content="Industrial Apps | Practical Engineering Software">
-  <meta property="og:description" content="Focused digital tools for industrial electricians, technicians and engineers.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mdada3450-tech.github.io/industrial-apps-portfolio/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Industrial Apps | Practical Engineering Software">
-  <meta name="twitter:description" content="Focused digital tools for industrial electricians, technicians and engineers.">
-  <link rel="canonical" href="https://mdada3450-tech.github.io/industrial-apps-portfolio/">
-  <title>Industrial Apps | Practical Engineering Software</title>
-  <style>
-    :root {
-      --navy: #0b2342;
-      --navy-2: #12365f;
-      --blue: #1769c2;
-      --blue-2: #2d8be8;
-      --cyan: #56c5df;
-      --ink: #14243a;
-      --muted: #63748a;
-      --line: #e3eaf2;
-      --surface: #ffffff;
-      --page: #f4f7fb;
-      --soft-blue: #eaf3ff;
-      --shadow: 0 18px 48px rgba(14, 39, 71, .09);
-      --radius: 20px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--page);
-      color: var(--ink);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
-    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 50; padding: 10px 14px; border-radius: 8px; background: white; color: var(--navy); font-size: 13px; font-weight: 750; box-shadow: var(--shadow); }
-    .skip-link:focus { top: 12px; }
-    .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
-    .site-header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,.94);
-      border-bottom: 1px solid rgba(227,234,242,.9);
-      backdrop-filter: blur(14px);
-    }
-    .nav-wrap { min-height: 98px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: inline-flex; align-items: center; gap: 16px; text-decoration: none; min-width: 330px; }
-    .brand-mark { width: 76px; height: 76px; display: grid; place-items: center; flex: 0 0 76px; background: transparent; }
-    .brand-mark svg { width: 76px; height: 76px; filter: drop-shadow(0 5px 5px rgba(8,47,89,.2)); }
-    .brand-name { font-size: 27px; line-height: 1.1; font-weight: 900; letter-spacing: -.035em; color: #071b3b; }
-    .brand-caption { display: block; color: #233d60; font-size: 17px; font-weight: 550; margin-top: 3px; }
-    .nav-links { display: flex; align-items: center; gap: 34px; }
-    .nav-links a { text-decoration: none; color: #102b52; font-size: 16px; font-weight: 650; transition: color .2s ease; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-links .nav-cta { padding: 12px 20px; border-radius: 999px; background: #b9dcff; color: #102b52; }
-    .menu-toggle { display: none; border: 1px solid var(--line); background: white; color: var(--navy); border-radius: 10px; padding: 8px 12px; font-size: 19px; cursor: pointer; }
-    .hero { position: relative; overflow: hidden; color: white; background: #061d38; }
-    .hero-grid { position: relative; display: grid; grid-template-columns: 43% 57%; align-items: stretch; min-height: 482px; padding: 0; }
-    .hero-copy-block { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 48px 26px 46px max(30px, calc((100vw - 1440px) / 2)); background: linear-gradient(90deg,#061d38 0%,#0a2c50 82%,rgba(8,39,70,.94) 100%); }
-    .eyebrow { display: none; }
-    h1 { max-width: 600px; margin: 0 0 18px; color: #fff; font-size: clamp(48px, 5.4vw, 82px); line-height: 1.02; letter-spacing: -.045em; }
-    h1 span { color: #16a4f2; }
-    .hero-copy { max-width: 580px; color: #f0f6ff; font-size: clamp(18px, 1.9vw, 27px); line-height: 1.35; }
-    .hero-actions { display: none; }
-    .hero-note { display: none; }
-    .hero-visual { position: relative; min-height: 482px; overflow: hidden; }
-    .hero-visual::before { content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(6,29,56,.42),transparent 28%); pointer-events:none; }
-    .hero-photo { display: block; width: 100%; height: 100%; min-height: 482px; object-fit: cover; object-position: center; }
-    .orbit, .core-card, .float-tag { display: none; }
-    .hero-benefits { display:flex; align-items:center; gap:22px; margin-top:22px; color:#fff; font-size:15px; font-weight:700; }
-    .hero-benefit { display:flex; align-items:center; gap:10px; min-height:42px; }
-    .hero-benefit + .hero-benefit { border-left:1px solid rgba(255,255,255,.55); padding-left:22px; }
-    .hero-benefit b { color:#16a4f2; font-size:28px; line-height:1; }
-    .orbit { position: absolute; width: 330px; height: 330px; border: 1px solid rgba(160,220,240,.22); border-radius: 50%; }
-    .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(160,220,240,.17); border-radius: 50%; inset: 28px; }
-    .orbit::after { inset: 62px; }
-    .core-card {
-      position: relative; width: min(300px, 90%); padding: 27px; border-radius: 22px;
-      background: linear-gradient(150deg, rgba(255,255,255,.17), rgba(255,255,255,.06));
-      border: 1px solid rgba(255,255,255,.25); box-shadow: 0 25px 65px rgba(0,0,0,.22);
-      backdrop-filter: blur(12px); transform: rotate(-4deg);
-    }
-    .core-top { display: flex; justify-content: space-between; align-items: center; color: #c4d9ed; font-size: 10px; letter-spacing: .13em; font-weight: 800; }
-    .signal { width: 8px; height: 8px; border-radius: 50%; background: #70e0b2; box-shadow: 0 0 0 5px rgba(112,224,178,.13); }
-    .motor-symbol { display: grid; place-items: center; height: 145px; margin: 17px 0 12px; color: #b5eaff; }
-    .motor-symbol svg { width: 142px; height: 142px; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)); }
-    .core-bottom { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.18); padding-top: 14px; color: #d6e8f7; font-size: 10px; }
-    .float-tag { position: absolute; padding: 10px 13px; border-radius: 11px; background: white; color: var(--navy); box-shadow: 0 12px 30px rgba(0,0,0,.16); font-size: 11px; font-weight: 800; }
-    .float-tag span { display: block; color: #7890a8; font-size: 9px; font-weight: 650; }
-    .float-tag.one { top: 28px; right: 0; }
-    .float-tag.two { bottom: 25px; left: 0; }
-    .proof-strip { background: white; border-bottom: 1px solid var(--line); }
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); padding: 22px 0; }
-    .proof-item { display: flex; align-items: center; justify-content: center; gap: 12px; color: #51647a; font-size: 12px; font-weight: 700; }
-    .proof-item + .proof-item { border-left: 1px solid var(--line); }
-    .proof-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: var(--soft-blue); color: var(--blue); font-size: 16px; }
-    .section { padding: 20px 0 78px; }
-    .section-heading { display: block; text-align: center; margin-bottom: 18px; }
-    .section-kicker, .section-intro, .project-count { display:none; }
-    h2 { display:flex; align-items:center; justify-content:center; gap:22px; margin:0; color:#0a3266; font-size:clamp(25px,2.6vw,37px); line-height:1.2; letter-spacing:-.025em; white-space:nowrap; }
-    h2::before, h2::after { content:""; height:1px; background:#9bb7d7; flex:1; }
-    .section-heading::after { content:"▦  Showing 8 applications"; display:inline-flex; margin-top:12px; padding:6px 18px; border-radius:999px; background:#c8e2ff; color:#10366a; font-size:14px; font-weight:800; }
-    .app-tools { display: none; }
-    .app-search, .app-filter { width: 100%; min-height: 44px; padding: 0 13px; border: 1px solid #dce5ef; border-radius: 9px; background: #fbfdff; color: var(--ink); font: inherit; font-size: 12px; }
-    .app-search:focus, .app-filter:focus { outline: 3px solid rgba(45,139,232,.2); border-color: var(--blue); }
-    .result-count { color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap; }
-    .empty-state { display: none; padding: 28px; border: 1px dashed #cbd8e6; border-radius: 14px; color: var(--muted); text-align: center; font-size: 13px; }
-    .app-card[hidden] { display: none; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    .app-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-    .app-card {
-      position: relative; overflow: hidden; min-height: 286px; padding: 17px;
-      background: rgba(255,255,255,.88); border: 1px solid #d8e6f5; border-radius: 20px;
-      box-shadow: 0 5px 22px rgba(20,50,90,.045); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .app-card:hover { transform: translateY(-5px); border-color: #c7dcf3; box-shadow: var(--shadow); }
-    .app-card::after { content: ""; position: absolute; width: 110px; height: 110px; right: -48px; top: -52px; border-radius: 50%; background: #f1f7ff; }
-    .app-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; position: relative; z-index: 1; }
-    .app-icon { width: 64px; height: 64px; flex: 0 0 64px; overflow: hidden; border-radius: 14px; background: #eaf3ff; }
-    .app-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .status { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border-radius: 999px; font-size: 9px; line-height: 1.2; font-weight: 850; letter-spacing: .035em; white-space: nowrap; }
-    .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-    .status.pending { color: #98620a; background: #fff5dc; }
-    .status.available { color: #137347; background: #e6f6ed; }
-    .app-download { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 9px 13px; border-radius: 9px; background: var(--navy); color: white; text-decoration: none; font-size: 11px; font-weight: 800; transition: background .2s ease, transform .2s ease; }
-    .app-download:hover { background: var(--blue); transform: translateY(-1px); }
-    .status.progress { color: #1769a9; background: #e8f4ff; }
-    .status.planned { color: #66758a; background: #f0f3f7; }
-    .app-card h3 { margin: -49px 0 0 76px; min-height:49px; display:flex; align-items:center; color:#071a3a; font-size:16px; line-height:1.2; letter-spacing:-.025em; }
-    .app-card p { margin-top: 12px; color:#243b5d; font-size:13px; line-height:1.5; min-height:58px; }
-    .app-category { display:inline-flex; align-items:center; margin-top: 9px; padding:7px 11px; border-radius:999px; color:#10366a; background:#cce5ff; font-size:10px; font-weight:800; letter-spacing:0; text-transform:none; }
-    .status-note { margin-top: 10px; color: #8b6a2e; font-size: 10px; }
-    .about-section { background: white; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 75px; align-items: center; }
-    .about-panel { padding: 30px; border-radius: 20px; color: white; background: linear-gradient(145deg, var(--navy), #14558d); }
-    .about-panel .panel-label { color: #9ddcf0; font-size: 10px; font-weight: 800; letter-spacing: .17em; }
-    .about-panel h3 { margin-top: 13px; font-size: 23px; line-height: 1.3; }
-    .about-panel p { margin-top: 13px; color: #ccdaea; font-size: 12px; line-height: 1.8; }
-    .about-copy p { margin-top: 15px; color: var(--muted); font-size: 14px; }
-    .focus-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 20px; margin-top: 25px; }
-    .focus-item { display: flex; align-items: center; gap: 9px; color: #344b65; font-size: 12px; font-weight: 700; }
-    .focus-item span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: var(--soft-blue); color: var(--blue); font-size: 12px; }
-    .contact-band { padding: 55px 0; background: #edf4fb; }
-    .contact-inner { display: flex; justify-content: space-between; align-items: center; gap: 25px; }
-    .contact-inner h2 { font-size: 25px; }
-    .contact-inner p { margin-top: 8px; color: var(--muted); font-size: 13px; }
-    .contact-link { display: inline-flex; padding: 12px 18px; border-radius: 10px; background: var(--navy); color: white; text-decoration: none; font-size: 12px; font-weight: 750; }
-    footer { padding: 25px 0; background: white; color: #8795a6; font-size: 11px; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
-    .footer-brand { color: var(--navy); font-weight: 850; letter-spacing: .1em; }
-    @media (max-width: 900px) {
-      .nav-wrap { min-height:82px; }
-      .brand { min-width:0; }
-      .brand-name { font-size:21px; }
-      .brand-caption { font-size:13px; }
-      .brand-mark,.brand-mark svg { width:60px;height:60px; flex-basis:60px; }
-      .hero-grid { grid-template-columns: 1fr 1fr; min-height:390px; }
-      .hero-copy-block { padding:35px 18px 35px 24px; }
-      .hero-visual,.hero-photo { min-height:390px; }
-      h1 { font-size:clamp(42px,5.4vw,58px); }
-      .hero-benefits { gap:10px; font-size:12px; }
-      .hero-benefit + .hero-benefit { padding-left:10px; }
-      .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .about-grid { gap: 35px; }
-    }
-    @media (max-width: 650px) {
-      .container { width: min(100% - 36px, 520px); }
-      .nav-wrap { min-height: 68px; }
-      .menu-toggle { display: inline-flex; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 16px; }
-      .nav-links.open { display: flex; }
-      .nav-links a { margin: 0; }
-      .nav-links .nav-cta { text-align: center; }
-      .hero-grid { grid-template-columns: 1fr; min-height:0; }
-      .hero-copy-block { padding:42px 22px 28px; }
-      h1 { font-size: clamp(43px, 11vw, 58px); }
-      .hero-copy { font-size: 17px; }
-      .hero-benefits { flex-wrap:wrap; gap:12px; }
-      .hero-benefit + .hero-benefit { border:0; padding-left:0; }
-      .hero-visual,.hero-photo { min-height:250px; height:250px; }
-      .proof-grid { grid-template-columns: 1fr; gap: 13px; padding: 19px 0; }
-      .proof-item { justify-content: flex-start; }
-      .proof-item + .proof-item { border: 0; }
-      .section { padding: 62px 0; }
-      .section-heading { display: block; }
-      .project-count { display: inline-block; margin-top: 16px; }
-      .app-tools { grid-template-columns: 1fr; }
-      .result-count { white-space: normal; }
-      .app-grid { grid-template-columns: 1fr; gap: 14px; }
-      .app-card { min-height: 0; padding: 18px; }
-      h2 { white-space:normal; gap:10px; font-size:24px; }
-      h2::before,h2::after { min-width:12px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .focus-list { grid-template-columns: 1fr 1fr; }
-      .contact-inner { align-items: flex-start; flex-direction: column; }
-      .footer-inner { flex-direction: column; gap: 7px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081522">
+<meta name="description" content="Practical mobile tools for electrical engineering, industrial maintenance and automation professionals.">
+<meta property="og:title" content="Industrial Apps | Engineering Tools">
+<meta property="og:description" content="Focused digital tools for industrial electricians, technicians and engineers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mdada3450-tech.github.io/industrial-apps-portfolio/">
+<link rel="canonical" href="https://mdada3450-tech.github.io/industrial-apps-portfolio/">
+<title>Industrial Apps | Engineering Tools</title>
+<style>
+:root{--bg:#081522;--panel:#0d2030;--panel2:#10283a;--line:#244052;--blue:#1687d9;--cyan:#55d5ed;--amber:#ffb547;--text:#eef6fb;--muted:#9aafbd;--green:#54d6a1;--radius:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(70,139,174,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(70,139,174,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+a{color:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+.site-header{position:sticky;top:0;z-index:30;background:rgba(7,19,30,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(91,154,184,.2)}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:48px;height:48px;object-fit:contain;border-radius:12px}
+.brand strong{display:block;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{text-decoration:none;color:#c0d1dc;font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-links .nav-cta{padding:10px 15px;border:1px solid #276084;border-radius:7px;color:var(--cyan)}
+.menu-toggle{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:20px}
+.hero{padding:54px 0 44px}
+.hero-grid{display:grid;grid-template-columns:.86fr 1.14fr;min-height:470px;border:1px solid #25465a;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#0d2638,#091725 72%);box-shadow:0 28px 90px rgba(0,0,0,.3)}
+.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:54px 38px 48px 48px}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--cyan);font:700 10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase}
+.kicker:before{content:"";width:24px;height:2px;background:var(--amber)}
+h1{font-size:clamp(43px,5vw,68px);line-height:.99;letter-spacing:-.055em;margin:24px 0 20px;font-weight:850}
+h1 span{color:var(--cyan)}
+.hero-copy>p{max-width:450px;color:#b5c7d3;font-size:16px;line-height:1.75}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 17px;border-radius:7px;text-decoration:none;font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;transition:transform .2s,border-color .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:white;border:1px solid var(--blue)}
+.btn-secondary{border:1px solid #426276;color:#dceaf2}
+.hero-specs{display:flex;gap:24px;margin-top:38px;padding-top:22px;border-top:1px solid #294253}
+.spec strong{display:block;color:var(--amber);font:700 19px ui-monospace,monospace}
+.spec span{display:block;color:#8fa7b6;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.hero-image{position:relative;min-height:470px;overflow:hidden}
+.hero-image img{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;object-position:center}
+.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b2030 0%,rgba(8,21,34,.35) 24%,rgba(5,17,27,.05) 65%,rgba(5,17,27,.2)),linear-gradient(0deg,rgba(4,15,24,.55),transparent 48%)}
+.image-label{position:absolute;z-index:2;right:22px;top:22px;padding:9px 12px;background:rgba(5,18,29,.78);border:1px solid rgba(104,198,225,.42);color:#bcefff;font:700 9px ui-monospace,monospace;letter-spacing:.14em}
+.image-caption{position:absolute;z-index:2;left:24px;bottom:22px;color:#e9f5fb;font:700 10px ui-monospace,monospace;letter-spacing:.15em;text-transform:uppercase}
+.image-caption span{color:var(--amber)}
+.metrics{border-top:1px solid #20394a;border-bottom:1px solid #20394a;background:#0b1b29}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:18px 0}
+.metric{display:flex;align-items:center;justify-content:center;gap:12px;color:#a9bdca;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.metric+.metric{border-left:1px solid #294253}
+.metric b{color:var(--cyan);font:700 21px ui-monospace,monospace}
+.section{padding:76px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.section-head .kicker{margin-bottom:12px}
+h2{font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.04em}
+.section-head p{max-width:460px;margin-top:12px;color:var(--muted);font-size:13px}
+.project-count{flex:none;padding:9px 12px;border:1px solid #2a4b5f;border-radius:6px;color:var(--cyan);font:700 10px ui-monospace,monospace;letter-spacing:.1em}
+.app-tools{display:flex;gap:12px;margin-bottom:20px}
+.app-search,.app-filter{min-height:44px;padding:0 14px;border:1px solid #294657;border-radius:7px;background:#0b1d2b;color:var(--text);font:inherit;font-size:12px}
+.app-search{flex:1}.app-search::placeholder{color:#78909f}.app-filter{min-width:190px}
+.result-count{align-self:center;color:#8fa7b6;font:10px ui-monospace,monospace;white-space:nowrap}
+.app-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.app-card{position:relative;min-height:275px;padding:20px;background:linear-gradient(155deg,#10283a,#0b1c2a);border:1px solid #254355;border-radius:12px;transition:transform .22s,border-color .22s,box-shadow .22s;overflow:hidden}
+.app-card:before{content:"";position:absolute;top:0;left:0;width:42px;height:2px;background:var(--blue)}
+.app-card:hover{transform:translateY(-5px);border-color:#3987ac;box-shadow:0 18px 40px rgba(0,0,0,.24)}
+.app-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.app-icon{width:54px;height:54px;display:grid;place-items:center;overflow:hidden;border:1px solid #31556b;border-radius:10px;background:#132f43;color:var(--cyan);font:800 15px ui-monospace,monospace}
+.app-icon img{width:100%;height:100%;object-fit:cover}
+.status{display:inline-flex;align-items:center;gap:7px;padding:6px 8px;border-radius:4px;font:800 8px ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.status.available{color:var(--green);background:rgba(84,214,161,.1);border:1px solid rgba(84,214,161,.22)}
+.status.progress{color:#7bc8ff;background:rgba(22,135,217,.12);border:1px solid rgba(22,135,217,.25)}
+.status.planned{color:#b5bdc6;background:rgba(159,176,190,.08);border:1px solid rgba(159,176,190,.16)}
+.app-card h3{margin:19px 0 8px;font-size:17px;line-height:1.25;letter-spacing:-.02em}
+.app-card p{min-height:61px;color:#9eb2c0;font-size:11px;line-height:1.65}
+.app-category{display:inline-block;margin-top:14px;color:var(--cyan);font:700 8px ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}
+.app-download{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:9px 12px;background:#1478bd;border:1px solid #2699df;border-radius:5px;color:#fff;text-decoration:none;font-size:9px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+.app-download:hover{background:#2095df}
+.app-card[hidden]{display:none}.empty-state{display:none;padding:30px;text-align:center;color:var(--muted);border:1px dashed #345264;border-radius:10px;font-size:13px}
+.about{padding:70px 0;background:#0b1b29;border-top:1px solid #20394a;border-bottom:1px solid #20394a}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}
+.vision-card{padding:32px;border:1px solid #31536a;border-radius:12px;background:linear-gradient(145deg,#12334a,#0d2030)}
+.vision-card .kicker{color:var(--amber)}
+.vision-card h3{margin:18px 0 12px;font-size:25px;line-height:1.2}
+.vision-card p,.about-copy p{color:#9eb2c0;font-size:12px;line-height:1.85}
+.about-copy h2{margin:13px 0 18px}
+.about-copy p+p{margin-top:12px}
+.focus-list{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px}
+.focus-item{display:flex;align-items:center;gap:10px;color:#c2d2dc;font-size:11px;font-weight:700}
+.focus-item span{display:grid;place-items:center;width:22px;height:22px;border:1px solid #2b718f;border-radius:5px;color:var(--cyan)}
+.contact{padding:58px 0}
+.contact-inner{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:28px 32px;border:1px solid #2b4a5d;border-radius:12px;background:linear-gradient(100deg,#102b40,#0c1c2b)}
+.contact-inner h2{font-size:26px}.contact-inner p{margin-top:8px;color:var(--muted);font-size:12px}
+.contact-link{flex:none;padding:12px 16px;border-radius:6px;background:var(--amber);color:#1c2630;text-decoration:none;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+footer{padding:22px 0;border-top:1px solid #20394a;color:#718a99;font-size:10px}
+.footer-inner{display:flex;justify-content:space-between;gap:18px}.footer-brand{color:#c4d5df;font-weight:850;letter-spacing:.15em}
+@media(max-width:950px){.hero-grid{grid-template-columns:.95fr 1.05fr}.hero-copy{padding:40px 28px}.app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid{gap:30px}}
+@media(max-width:650px){.container{width:calc(100% - 32px)}.nav{height:68px}.brand img{width:42px;height:42px}.brand strong{font-size:14px}.brand small{font-size:8px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:20px 22px;background:#091a28;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:18px}.nav-links.open{display:flex}.nav-links .nav-cta{text-align:center}.hero{padding:20px 0 28px}.hero-grid{grid-template-columns:1fr}.hero-copy{padding:34px 24px 28px}h1{font-size:48px;margin:18px 0 14px}.hero-copy>p{font-size:14px}.hero-specs{margin-top:26px}.hero-image{min-height:245px}.hero-image img{min-height:245px}.metrics-grid{grid-template-columns:1fr;gap:13px;padding:18px 0}.metric{justify-content:flex-start}.metric+.metric{border:0}.section{padding:55px 0}.section-head{display:block}.project-count{display:inline-block;margin-top:18px}.app-tools{flex-direction:column}.app-filter{min-width:0}.result-count{white-space:normal}.app-grid{grid-template-columns:1fr}.app-card{min-height:0}.app-card p{min-height:0}.about-grid{grid-template-columns:1fr}.focus-list{grid-template-columns:1fr 1fr}.contact-inner{align-items:flex-start;flex-direction:column;padding:24px}.footer-inner{flex-direction:column;gap:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Industrial Apps home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="gearBlue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#46b8ff"/><stop offset="1" stop-color="#073b80"/></linearGradient></defs>
-            <path d="M42 4h16l4 12a36 36 0 0 1 9 4l11-6 12 12-6 11a36 36 0 0 1 4 9l12 4v16l-12 4a36 36 0 0 1-4 9l6 11-12 12-11-6a36 36 0 0 1-9 4l-4 12H42l-4-12a36 36 0 0 1-9-4l-11 6L6 89l6-11a36 36 0 0 1-4-9L-4 65V49l12-4a36 36 0 0 1 4-9L6 25 18 13l11 6a36 36 0 0 1 9-4Z" transform="translate(4 0)" fill="url(#gearBlue)" stroke="#9bd3ff" stroke-width="3"/>
-            <circle cx="50" cy="50" r="28" fill="#082f66" stroke="#d8edff" stroke-width="3"/>
-            <path d="m58 15-27 42h19l-7 29 29-48H52l6-23Z" fill="#ffc928" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span><span class="brand-name">Industrial Apps</span><span class="brand-caption">Smart Tools for Industry</span></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
-      <nav class="nav-links" id="main-nav" aria-label="Main navigation">
-        <a href="#home">⌂ &nbsp;Home</a>
-        <a href="#apps">▦ &nbsp;Applications</a>
-        <a href="#about">● &nbsp;About</a>
-        <a href="#contact">✉ &nbsp;Contact</a>
-        <a class="nav-cta" href="#about">♟ &nbsp;Engineer · Developer · Innovator</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="hero" id="home">
-      <div class="hero-grid">
-        <div class="hero-copy-block">
-          <h1>Industrial <span>Apps</span><br>Portfolio</h1>
-          <p class="hero-copy">Powerful and practical applications<br>for engineers and technicians</p>
-          <div class="hero-benefits">
-            <div class="hero-benefit"><b>ϟ</b><span>Boost<br>Productivity</span></div>
-            <div class="hero-benefit"><b>⬡</b><span>Work<br>Safer</span></div>
-            <div class="hero-benefit"><b>⚙</b><span>Solve Problems<br>Smarter</span></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img class="hero-photo"
-               src="/industrial-apps-portfolio/assets/images/industrial-hero.webp"
-               alt="Blue industrial three-phase electric motor in a modern factory"
-               fetchpriority="high">
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="section" id="apps">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="section-kicker">The application portfolio</div>
-            <h2>Tools for the field and the workshop.</h2>
-            <p class="section-intro">A growing collection of focused applications for technicians, electricians, engineering students and industrial professionals.</p>
-          </div>
-          <div class="project-count">08 PROJECTS IN THE PORTFOLIO</div>
-        </div>
-
-        <div class="app-tools" role="search" aria-label="Find an application">
-          <label class="sr-only" for="app-search">Search applications</label>
-          <input class="app-search" id="app-search" type="search" placeholder="Search applications or topics…" autocomplete="off">
-          <label class="sr-only" for="app-filter">Filter by category</label>
-          <select class="app-filter" id="app-filter">
-            <option value="all">All categories</option>
-            <option value="motors">Motors</option>
-            <option value="automation">Automation</option>
-            <option value="protection">Protection &amp; control</option>
-            <option value="equipment">Electrical equipment</option>
-            <option value="learning">Technical learning</option>
-          </select>
-          <span class="result-count" id="result-count" aria-live="polite">Showing 8 applications</span>
-        </div>
-        <div class="app-grid" id="app-grid">
-          <article class="app-card" data-category="motors" data-search="motorcalc 3p motor calc three phase motor calculations electrical sizing speed slip power mechanical performance star delta">
-            <div class="app-top"><div class="app-icon"><img src="assets/icons/Motor%20Calc%203P.png" alt="Motor Calc 3P app icon"></div><span class="status available">Available</span></div>
-            <h3>Motor Calc 3P</h3>
-            <p>Practical three-phase motor calculations: speed and slip, electrical power, mechanical performance, and star/delta connections.</p>
-            <span class="app-category">Motor calculations · English &amp; French</span>
-            <a class="app-download" href="https://github.com/mdada3450-tech/motor-calc-3p-releases/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Download APK <span aria-hidden="true">↓</span></a>
-          </article>
-
-          <article class="app-card" data-category="motors" data-search="motor plate scanner nameplate ocr motor specifications">
-            <div class="app-top"><div class="app-icon">M</div><span class="status progress">In Development</span></div>
-            <h3>Motor Plate Scanner</h3>
-            <p>Capture and interpret industrial motor nameplates, organize specifications and support technical review.</p>
-            <span class="app-category">Motor data &amp; OCR</span>
-          </article>
-
-          <article class="app-card" data-category="motors" data-search="motor diagnostic pro fault finding troubleshooting asynchronous induction motor">
-            <div class="app-top"><div class="app-icon">D</div><span class="status planned">Planned</span></div>
-            <h3>Motor Diagnostic Pro</h3>
-            <p>Interactive fault-finding paths for three-phase asynchronous motors, from symptoms to practical checks.</p>
-            <span class="app-category">Motor troubleshooting</span>
-          </article>
-
-          <article class="app-card" data-category="automation" data-search="plc diagnostic pro programmable logic controller siemens alarms status indicators">
-            <div class="app-top"><div class="app-icon">PLC</div><span class="status planned">Planned</span></div>
-            <h3>PLC Diagnostic Pro</h3>
-            <p>A practical PLC reference covering hardware, status indicators, alarms and structured troubleshooting.</p>
-            <span class="app-category">Industrial automation</span>
-          </article>
-
-          <article class="app-card" data-category="protection" data-search="elecguard electrical protection control devices testing safety">
-            <div class="app-top"><div class="app-icon">EG</div><span class="status planned">Planned</span></div>
-            <h3>ElecGuard</h3>
-            <p>Technical guidance for electrical protection and control devices, including testing methods and safety.</p>
-            <span class="app-category">Protection &amp; control</span>
-          </article>
-
-          <article class="app-card" data-category="equipment" data-search="industrial cabinet explorer electrical cabinet components connections">
-            <div class="app-top"><div class="app-icon">IC</div><span class="status planned">Planned</span></div>
-            <h3>Industrial Cabinet Explorer</h3>
-            <p>Explore electrical cabinet components, their functions, connections and roles in industrial systems.</p>
-            <span class="app-category">Electrical equipment</span>
-          </article>
-
-          <article class="app-card" data-category="motors" data-search="motor starting pro motor starter methods power control circuits">
-            <div class="app-top"><div class="app-icon">MS</div><span class="status planned">Planned</span></div>
-            <h3>Motor Starting Pro</h3>
-            <p>Learn motor starting methods, power and control circuits, operating principles and applications.</p>
-            <span class="app-category">Motor control</span>
-          </article>
-
-          <article class="app-card" data-category="learning" data-search="electriquest digital cards learning industrial electricity technical">
-            <div class="app-top"><div class="app-icon">EQ</div><span class="status planned">Planned</span></div>
-            <h3>ElectriQuest</h3>
-            <p>A digital card-based learning experience for discovering industrial electricity through practical topics.</p>
-            <span class="app-category">Technical learning</span>
-          </article>
-        </div>
-        <p class="empty-state" id="empty-state">No applications match your search. Try another keyword or category.</p>
-      </div>
-    </section>
-
-    <section class="about-section" id="about">
-      <div class="container section about-grid">
-        <div class="about-panel">
-          <div class="panel-label">THE VISION</div>
-          <h3>Useful engineering knowledge, made practical.</h3>
-          <p>Each application is designed around a specific technical need, with an emphasis on clarity, usability and real-world industrial context.</p>
-        </div>
-        <div class="about-copy">
-          <div class="section-kicker">About Industrial Apps</div>
-          <h2>Built for people who work with technology.</h2>
-          <p>Industrial Apps is an independent software portfolio focused on practical digital tools for the electrical and industrial fields.</p>
-          <p>The goal is to develop focused Android applications that help users calculate, understand equipment, learn technical concepts and approach troubleshooting in a structured way.</p>
-          <div class="focus-list">
-            <div class="focus-item"><span>✓</span> Practical engineering</div>
-            <div class="focus-item"><span>✓</span> Industrial applications</div>
-            <div class="focus-item"><span>✓</span> Clear technical content</div>
-            <div class="focus-item"><span>✓</span> Continuous improvement</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-band" id="contact">
-      <div class="container contact-inner">
-        <div>
-          <div class="section-kicker">Stay connected</div>
-          <h2>Follow the development.</h2>
-          <p>Visit the project repository to follow updates and development progress.</p>
-        </div>
-        <a class="contact-link" href="https://github.com/mdada3450-tech/industrial-apps-portfolio" target="_blank" rel="noopener noreferrer">View GitHub repository ↗</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span class="footer-brand">INDUSTRIAL APPS</span>
-      <span>© 2026 Industrial Apps. All rights reserved.</span>
-    </div>
-  </footer>
-
-  <script>
-    const searchInput = document.querySelector('#app-search');
-    const categoryFilter = document.querySelector('#app-filter');
-    const appCards = [...document.querySelectorAll('.app-card')];
-    const resultCount = document.querySelector('#result-count');
-    const emptyState = document.querySelector('#empty-state');
-
-    function filterApplications() {
-      const query = searchInput.value.trim().toLowerCase();
-      const category = categoryFilter.value;
-      let visible = 0;
-      appCards.forEach((card) => {
-        const searchableText = (card.dataset.search + ' ' + card.innerText).toLowerCase();
-        const matchesQuery = searchableText.includes(query);
-        const matchesCategory = category === 'all' || card.dataset.category === category;
-        const show = matchesQuery && matchesCategory;
-        card.hidden = !show;
-        if (show) visible += 1;
-      });
-      resultCount.textContent = `Showing ${visible} of ${appCards.length} applications`;
-      emptyState.style.display = visible === 0 ? 'block' : 'none';
-    }
-    searchInput.addEventListener('input', filterApplications);
-    categoryFilter.addEventListener('change', filterApplications);
-
-    const menuButton = document.querySelector('.menu-toggle');
-    const navigation = document.querySelector('.nav-links');
-    menuButton.addEventListener('click', () => {
-      const isOpen = navigation.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.textContent = isOpen ? '×' : '☰';
-    });
-    navigation.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navigation.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.textContent = '☰';
-      });
-    });
-  </script>
+<header class="site-header">
+ <div class="container nav">
+  <a class="brand" href="#home" aria-label="Industrial Apps home"><img src="/industrial-apps-portfolio/assets/images/industrial-logo.webp" alt=""><span><strong>Industrial Apps</strong><small>Engineering tools / 2026</small></span></a>
+  <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
+  <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+   <a href="#home">01 / Home</a><a href="#apps">02 / Applications</a><a href="#about">03 / About</a><a class="nav-cta" href="#contact">Get in touch ↗</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="home"><div class="container">
+ <div class="hero-grid">
+  <div class="hero-copy">
+   <div class="kicker">Independent industrial software studio</div>
+   <h1>Engineering<br>tools for the<br><span>real world.</span></h1>
+   <p>Focused mobile applications for electrical engineering, industrial maintenance and automation. Built around practical problems, clear technical knowledge and the needs of people in the field.</p>
+   <div class="hero-actions"><a class="btn btn-primary" href="#apps">Explore applications <span>↓</span></a><a class="btn btn-secondary" href="https://github.com/mdada3450-tech/industrial-apps-portfolio" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></div>
+   <div class="hero-specs"><div class="spec"><strong>08</strong><span>Focused projects</span></div><div class="spec"><strong>01</strong><span>Available app</span></div><div class="spec"><strong>3P</strong><span>Industrial focus</span></div></div>
+  </div>
+  <div class="hero-image"><img src="/industrial-apps-portfolio/assets/images/industrial-hero.webp" alt="Blue three-phase industrial electric motor in a factory" fetchpriority="high"><div class="image-label">MOTOR / IE3 / 400 V</div><div class="image-caption">Industrial systems <span>·</span> practical intelligence</div></div>
+ </div>
+</div></section>
+<div class="metrics"><div class="container metrics-grid"><div class="metric"><b>01</b> Built around real use cases</div><div class="metric"><b>02</b> Practical technical content</div><div class="metric"><b>03</b> Designed for mobile</div></div></div>
+<section class="section" id="apps"><div class="container">
+ <div class="section-head"><div><div class="kicker">The application portfolio</div><h2>Tools for the field<br>and the workshop.</h2><p>A growing collection of focused applications for technicians, electricians, engineering students and industrial professionals.</p></div><div class="project-count">08 / PROJECTS</div></div>
+ <div class="app-tools" role="search" aria-label="Find an application"><input class="app-search" id="app-search" type="search" placeholder="Search applications or topics…" autocomplete="off" aria-label="Search applications"><select class="app-filter" id="app-filter" aria-label="Filter by category"><option value="all">All categories</option><option value="motors">Motors</option><option value="automation">Automation</option><option value="protection">Protection &amp; control</option><option value="equipment">Electrical equipment</option><option value="learning">Technical learning</option></select><span class="result-count" id="result-count" aria-live="polite">Showing 8 applications</span></div>
+ <div class="app-grid" id="app-grid">
+  <article class="app-card" data-category="motors" data-search="motorcalc 3p motor calc three phase motor calculations electrical sizing speed slip power mechanical performance star delta"><div class="app-top"><div class="app-icon"><img src="/industrial-apps-portfolio/assets/icons/Motor%20Calc%203P.png" alt="Motor Calc 3P app icon"></div><span class="status available">Available</span></div><h3>Motor Calc 3P</h3><p>Practical three-phase motor calculations: speed and slip, electrical power, mechanical performance, and star/delta connections.</p><span class="app-category">Motor calculations · English &amp; French</span><a class="app-download" href="https://github.com/mdada3450-tech/motor-calc-3p-releases/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">Download APK ↓</a></article>
+  <article class="app-card" data-category="motors" data-search="motor plate scanner nameplate ocr motor specifications"><div class="app-top"><div class="app-icon">MP</div><span class="status progress">In development</span></div><h3>Motor Plate Scanner</h3><p>Capture and interpret industrial motor nameplates, organize specifications and support technical review.</p><span class="app-category">Motor data &amp; OCR</span></article>
+  <article class="app-card" data-category="motors" data-search="motor diagnostic pro fault finding troubleshooting asynchronous induction motor"><div class="app-top"><div class="app-icon">MD</div><span class="status planned">Planned</span></div><h3>Motor Diagnostic Pro</h3><p>Interactive fault-finding paths for three-phase asynchronous motors, from symptoms to practical checks.</p><span class="app-category">Motor troubleshooting</span></article>
+  <article class="app-card" data-category="automation" data-search="plc diagnostic pro programmable logic controller siemens alarms status indicators"><div class="app-top"><div class="app-icon">PLC</div><span class="status planned">Planned</span></div><h3>PLC Diagnostic Pro</h3><p>A practical PLC reference covering hardware, status indicators, alarms and structured troubleshooting.</p><span class="app-category">Industrial automation</span></article>
+  <article class="app-card" data-category="protection" data-search="elecguard electrical protection control devices testing safety"><div class="app-top"><div class="app-icon">EG</div><span class="status planned">Planned</span></div><h3>ElecGuard</h3><p>Technical guidance for electrical protection and control devices, including testing methods and safety.</p><span class="app-category">Protection &amp; control</span></article>
+  <article class="app-card" data-category="equipment" data-search="industrial cabinet explorer electrical cabinet components connections"><div class="app-top"><div class="app-icon">IC</div><span class="status planned">Planned</span></div><h3>Industrial Cabinet Explorer</h3><p>Explore electrical cabinet components, their functions, connections and roles in industrial systems.</p><span class="app-category">Electrical equipment</span></article>
+  <article class="app-card" data-category="motors" data-search="motor starting pro motor starter methods power control circuits"><div class="app-top"><div class="app-icon">MS</div><span class="status planned">Planned</span></div><h3>Motor Starting Pro</h3><p>Learn motor starting methods, power and control circuits, operating principles and applications.</p><span class="app-category">Motor control</span></article>
+  <article class="app-card" data-category="learning" data-search="electriquest digital cards learning industrial electricity technical"><div class="app-top"><div class="app-icon">EQ</div><span class="status planned">Planned</span></div><h3>ElectriQuest</h3><p>A digital card-based learning experience for discovering industrial electricity through practical topics.</p><span class="app-category">Technical learning</span></article>
+ </div><p class="empty-state" id="empty-state">No applications match your search. Try another keyword or category.</p>
+</div></section>
+<section class="about" id="about"><div class="container about-grid">
+ <div class="vision-card"><div class="kicker">The vision / 001</div><h3>Useful engineering knowledge, made practical.</h3><p>Every application starts with a specific technical need and aims to turn complex industrial topics into clear, accessible tools.</p></div>
+ <div class="about-copy"><div class="kicker">About Industrial Apps</div><h2>Designed around<br>the work itself.</h2><p>Industrial Apps is an independent software portfolio focused on practical digital tools for the electrical and industrial fields.</p><p>The goal is to develop focused Android applications that help users calculate, understand equipment, learn technical concepts and approach troubleshooting in a structured way.</p><div class="focus-list"><div class="focus-item"><span>✓</span> Practical engineering</div><div class="focus-item"><span>✓</span> Industrial applications</div><div class="focus-item"><span>✓</span> Clear technical content</div><div class="focus-item"><span>✓</span> Continuous improvement</div></div></div>
+</div></section>
+<section class="contact" id="contact"><div class="container contact-inner"><div><div class="kicker">Stay connected</div><h2>Follow the development.</h2><p>Visit the project repository to follow updates and development progress.</p></div><a class="contact-link" href="https://github.com/mdada3450-tech/industrial-apps-portfolio" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a></div></section>
+</main>
+<footer><div class="container footer-inner"><span class="footer-brand">INDUSTRIAL APPS / ENGINEERING TOOLS</span><span>© 2026 Industrial Apps. All rights reserved.</span></div></footer>
+<script>
+const searchInput=document.querySelector('#app-search');
+const categoryFilter=document.querySelector('#app-filter');
+const appCards=[...document.querySelectorAll('.app-card')];
+const resultCount=document.querySelector('#result-count');
+const emptyState=document.querySelector('#empty-state');
+function filterApplications(){const query=searchInput.value.trim().toLowerCase();const category=categoryFilter.value;let visible=0;appCards.forEach(card=>{const text=(card.dataset.search+' '+card.innerText).toLowerCase();const show=text.includes(query)&&(category==='all'||card.dataset.category===category);card.hidden=!show;if(show)visible++});resultCount.textContent='Showing '+visible+' of '+appCards.length+' applications';emptyState.style.display=visible===0?'block':'none'}
+searchInput.addEventListener('input',filterApplications);categoryFilter.addEventListener('change',filterApplications);
+const menuButton=document.querySelector('.menu-toggle');const navigation=document.querySelector('.nav-links');
+menuButton.addEventListener('click',()=>{const open=navigation.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰'});
+navigation.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navigation.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰'}));
+</script>
 </body>
 </html>
