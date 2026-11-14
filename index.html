@@ -53,42 +53,38 @@
     .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
     .brand-mark {
-      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
-      color: white; background: linear-gradient(145deg, var(--blue-2), var(--navy-2));
-      box-shadow: 0 8px 18px rgba(23,105,194,.22);
+      width: 54px; height: 54px; display: grid; place-items: center; flex: 0 0 54px;
+      border-radius: 16px; color: white; background: linear-gradient(145deg, #2387e8, #073c78);
+      box-shadow: 0 9px 22px rgba(23,105,194,.24);
     }
-    .brand-mark svg { width: 24px; height: 24px; }
-    .brand-name { font-size: 14px; font-weight: 850; letter-spacing: .09em; color: var(--navy); }
-    .brand-caption { display: block; color: #8290a2; font-size: 10px; letter-spacing: .15em; font-weight: 700; margin-top: -3px; }
+    .brand-mark svg { width: 39px; height: 39px; }
+    .brand-name { font-size: 16px; font-weight: 900; letter-spacing: .035em; color: var(--navy); }
+    .brand-caption { display: block; color: #60748e; font-size: 10px; letter-spacing: .08em; font-weight: 700; margin-top: -2px; }
     .nav-links { display: flex; align-items: center; gap: 30px; }
     .nav-links a { text-decoration: none; color: #506178; font-size: 13px; font-weight: 650; transition: color .2s ease; }
     .nav-links a:hover { color: var(--blue); }
     .nav-links .nav-cta { padding: 10px 17px; border-radius: 999px; background: var(--navy); color: white; }
     .menu-toggle { display: none; border: 1px solid var(--line); background: white; color: var(--navy); border-radius: 10px; padding: 8px 12px; font-size: 19px; cursor: pointer; }
     .hero {
-      position: relative; overflow: hidden; color: white;
-      background: radial-gradient(circle at 82% 25%, rgba(69,177,222,.28), transparent 28%),
-                  radial-gradient(circle at 10% 100%, rgba(45,139,232,.22), transparent 34%),
-                  linear-gradient(120deg, #081d38 0%, #0d3159 58%, #12518a 100%);
+      position: relative; overflow: hidden; color: var(--navy);
+      background: linear-gradient(115deg, #f4f8fd 0%, #e8f2fc 54%, #dceafa 100%);
     }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; opacity: .13; pointer-events: none;
-      background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px);
-      background-size: 46px 46px; mask-image: linear-gradient(90deg, black, transparent 85%);
-    }
-    .hero-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 64px; padding-top: 96px; padding-bottom: 100px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #9ddcf0; font-size: 11px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    .hero::before { display: none; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 42px; padding-top: 58px; padding-bottom: 64px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); font-size: 11px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 25px; height: 2px; background: var(--cyan); }
     h1 { max-width: 720px; margin: 20px 0 22px; font-size: clamp(40px, 5.5vw, 66px); line-height: 1.08; letter-spacing: -.045em; }
-    h1 span { color: #76c9e6; }
-    .hero-copy { max-width: 610px; color: #d1deed; font-size: 17px; line-height: 1.8; }
+    h1 span { color: var(--blue-2); }
+    .hero-copy { max-width: 610px; color: #526981; font-size: 17px; line-height: 1.8; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 20px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 750; transition: transform .2s ease, box-shadow .2s ease; }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { color: var(--navy); background: white; box-shadow: 0 10px 24px rgba(0,0,0,.14); }
-    .btn-secondary { color: white; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
-    .hero-note { margin-top: 25px; color: #aebfd2; font-size: 11px; letter-spacing: .04em; }
-    .hero-visual { position: relative; min-height: 340px; display: grid; place-items: center; }
+    .btn-primary { color: white; background: var(--navy); box-shadow: 0 10px 24px rgba(11,35,66,.18); }
+    .btn-secondary { color: var(--navy); border: 1px solid #c7d8eb; background: rgba(255,255,255,.65); }
+    .hero-note { margin-top: 25px; color: #6e8197; font-size: 11px; letter-spacing: .04em; }
+    .hero-visual { position: relative; min-height: 390px; display: block; overflow: hidden; border-radius: 22px; box-shadow: 0 22px 48px rgba(12,39,70,.18); }
+    .hero-photo { display: block; width: 100%; height: 390px; object-fit: cover; object-position: center; }
+    .orbit, .core-card, .float-tag { display: none; }
     .orbit { position: absolute; width: 330px; height: 330px; border: 1px solid rgba(160,220,240,.22); border-radius: 50%; }
     .orbit::before, .orbit::after { content: ""; position: absolute; border: 1px solid rgba(160,220,240,.17); border-radius: 50%; inset: 28px; }
     .orbit::after { inset: 62px; }
@@ -168,7 +164,8 @@
     .footer-brand { color: var(--navy); font-weight: 850; letter-spacing: .1em; }
     @media (max-width: 900px) {
       .hero-grid { gap: 25px; }
-      .hero-visual { transform: scale(.88); }
+      .hero-visual { min-height: 310px; }
+      .hero-photo { height: 310px; }
       .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-grid { gap: 35px; }
     }
@@ -183,7 +180,8 @@
       .hero-grid { grid-template-columns: 1fr; padding-top: 68px; padding-bottom: 54px; gap: 20px; }
       h1 { font-size: clamp(39px, 11vw, 54px); }
       .hero-copy { font-size: 15px; }
-      .hero-visual { min-height: 280px; transform: scale(.82); margin: -5px 0 -20px; }
+      .hero-visual { min-height: 240px; margin: 0; }
+      .hero-photo { height: 240px; }
       .proof-grid { grid-template-columns: 1fr; gap: 13px; padding: 19px 0; }
       .proof-item { justify-content: flex-start; }
       .proof-item + .proof-item { border: 0; }
@@ -211,11 +209,13 @@
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="Industrial Apps home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 8.5h11.5a3.5 3.5 0 0 1 0 7H4z"/><path d="M7 8.5V5h5v3.5M7 15.5V19h5v-3.5M19 10v4M2 10v4"/><path d="M10 10.5v3"/>
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M27 4h10l2.2 7.1a22 22 0 0 1 5.2 2.2l6.6-3.1 7.1 7.1-3.1 6.6a22 22 0 0 1 2.2 5.2L64 31v10l-7.1 2.2a22 22 0 0 1-2.2 5.2l3.1 6.6-7.1 7.1-6.6-3.1a22 22 0 0 1-5.2 2.2L37 68H27l-2.2-7.1a22 22 0 0 1-5.2-2.2L13 61.8 5.9 54.7 9 48.1a22 22 0 0 1-2.2-5.2L0 40.7v-10l6.8-2a22 22 0 0 1 2.2-5.2l-3.1-6.6L13 9.8l6.6 3.1a22 22 0 0 1 5.2-2.2L27 4Z" fill="#EAF4FF" stroke="#B9DBFF" stroke-width="2"/>
+            <path d="M32 14c-10 0-18 8-18 18s8 18 18 18 18-8 18-18-8-18-18-18Z" fill="#0C4F91"/>
+            <path d="m35 13-14 23h10l-2 15 15-25H34l1-13Z" fill="#FFC928" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
         </span>
-        <span><span class="brand-name">INDUSTRIAL APPS</span><span class="brand-caption">ENGINEERING SOFTWARE</span></span>
+        <span><span class="brand-name">Industrial Apps</span><span class="brand-caption">Smart Tools for Industry</span></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">☰</button>
       <nav class="nav-links" id="main-nav" aria-label="Main navigation">
@@ -239,20 +239,11 @@
           </div>
           <p class="hero-note">INDEPENDENT DEVELOPMENT · BUILT AROUND REAL INDUSTRIAL NEEDS</p>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orbit"></div>
-          <div class="core-card">
-            <div class="core-top"><span>INDUSTRIAL SYSTEMS</span><span class="signal"></span></div>
-            <div class="motor-symbol">
-              <svg viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="24" y="43" width="91" height="74" rx="12"/><path d="M115 60h13v40h-13M24 61H13v38h11M44 43V29h51v14M44 117v13h51v-13M52 57v46M65 57v46M78 57v46M91 57v46M115 80h17M132 69v22M13 69v22"/>
-                <circle cx="69" cy="80" r="13"/><path d="M69 67v26M56 80h26"/>
-              </svg>
-            </div>
-            <div class="core-bottom"><span>ENGINEERING TOOLS</span><span>01 / 08</span></div>
-          </div>
-          <div class="float-tag one">Electrical <span>Calculations &amp; reference</span></div>
-          <div class="float-tag two">Diagnostics <span>Guided troubleshooting</span></div>
+        <div class="hero-visual">
+          <img class="hero-photo"
+               src="https://images.unsplash.com/photo-1763952626662-419b004e1783?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=85&amp;w=1400"
+               alt="Industrial electric motor and mechanical drive system in a factory"
+               fetchpriority="high">
         </div>
       </div>
     </section>
